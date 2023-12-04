@@ -8,3 +8,11 @@ First, get the fastq file using fastq-dump limiting the read to 1 million of eas
 ```bash
 fastq-dump -X 1000000 --split-3 DRR024501
 ```
+Then, check the basic information of the sequence that has been downloaded
+```bash
+seqkit stats *.fastq
+```
+After that, do quality check using FastQC, to check if trimming is needed or not.
+```bash
+fastqc -t 4 DRR024501_1.fastq DRR024501_2.fastq -o qc
+```
