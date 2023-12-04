@@ -16,4 +16,4 @@ After that, do quality check using FastQC, to check if trimming is needed or not
 ```bash
 fastqc -t 4 DRR024501_1.fastq DRR024501_2.fastq -o qc
 ```
-In this case, you need
+In this case, you need to do
