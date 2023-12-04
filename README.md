@@ -20,3 +20,4 @@ In this case, we need to do some trimming using because there are some adapter c
 ```bash
 fastp -i DRR024501_1.fastq -o DRR024501_1.fastp.fastq -I DRR024501_2.fastq -O DRR024501_2.fastp.fastq
 ```
+Then we can proceed to assembly the trimmed reads.
