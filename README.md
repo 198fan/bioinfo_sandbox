@@ -16,4 +16,7 @@ After that, do quality check using FastQC, to check if trimming is needed or not
 ```bash
 fastqc -t 4 DRR024501_1.fastq DRR024501_2.fastq -o qc
 ```
-In this case, you need to do
+In this case, we need to do some trimming using because there are some adapter content and low quality at the end of reads.
+```bash
+fastp -i DRR024501_1.fastq -o DRR024501_1.fastp.fastq -I DRR024501_2.fastq -O DRR024501_2.fastp.fastq
+```
