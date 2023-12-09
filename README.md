@@ -24,4 +24,16 @@ In this case, we need to do some trimming using because there are some adapter c
 ```bash
 fastp -i DRR024501_1.fastq -o DRR024501_1.fastp.fastq -I DRR024501_2.fastq -O DRR024501_2.fastp.fastq
 ```
-Then we can proceed to assembly the trimmed reads.
+Then we can proceed to assembly the trimmed reads using Skesa.
+```bash
+skesa --reads DRR024501_1.fastp.fastq,DRR024501_2.fastp.fastq --cores 4 > DRR024501.skesa.fa
+```
+Then we can trim the short contigs by using
+```bash
+seqkit seq --min-len 1000 DRR024501.skesa.fa | seqkit sort -l -r > DRR024501.skesa.1000.fa
+```
+
+To annotate the genome, we need to use Prokka. The simplest command is just
+```bash
+prokka DRR024501.skesa.1000.fa
+```
